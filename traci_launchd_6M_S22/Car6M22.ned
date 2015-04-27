@@ -52,14 +52,14 @@ module Car6M22
 
         notificationBoard: NotificationBoard {
             parameters:
-                @display("p=140,462");
+                @display("p=140,448");
         }
         ac_wlan: HostAutoConfigurator {
             @display("p=296,402");
         }
         interfaceTable: InterfaceTable {
             parameters:
-                @display("p=140,326");
+                @display("p=140,336");
         }
         //       app: TraCIDemo {
         app: UDPBasicBurst {
@@ -68,7 +68,7 @@ module Car6M22
         }
         mobility: TraCIMobility {
             parameters:
-                @display("p=60,459");
+                @display("p=60,433");
         }
         routingTable: RoutingTable {
             parameters:
@@ -102,7 +102,7 @@ module Car6M22
 
         wlan.upperLayerOut --> networkLayer.ifIn[0];
         wlan.upperLayerIn <-- networkLayer.ifOut[0];
-        
+
         networkLayer.transportOut++ --> manetrouting.from_ip if routingProtocol != "";
         networkLayer.transportIn++ <-- manetrouting.to_ip if routingProtocol != "";
 

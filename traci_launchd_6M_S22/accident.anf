@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
   <inputs>
     <inputs name="/inet/examples/Examples_Inet_26/traci_launchd_6M_S22/results/accident-*.vec"/>
     <inputs name="/inet/examples/Examples_Inet_26/traci_launchd_6M_S22/results/accident-*.sca"/>
   </inputs>
-  <datasets/>
-  <chartSheets/>
+  <datasets>
+    <datasets name="probe">
+      <items xsi:type="scave:Add" filterPattern=""/>
+      <items xsi:type="scave:Add" filterPattern="" type="VECTOR"/>
+      <items xsi:type="scave:Group" name="">
+        <items xsi:type="scave:BarChart" name="Total Received">
+          <filters xsi:type="scave:Select" filterPattern="run(*) AND module(*.app) AND name(&quot;Total received&quot;)"/>
+        </items>
+      </items>
+      <items xsi:type="scave:BarChart" name="g">
+        <filters xsi:type="scave:Select" filterPattern="run(*) AND module(*.app) AND name(&quot;Total sent&quot;)"/>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2/@items.0 //@datasets/@datasets.0/@items.3"/>
+  </chartSheets>
 </scave:Analysis>
